@@ -1,0 +1,31 @@
+CREATE TABLE `open_076_ao.ods_d_zb_cus_mb_label_all_user`(
+AREA_NO	string,
+DEVICE_NUMBER	string,
+USER_ID	string,
+CO_B_01	string,
+BA_S_01	string,
+TYPE_HYBL_CUST_TYPE	string,
+SERVICE_TYPE	string,
+ACTIVATE_DATE	string,
+ONLINE_DUR_LVL	string,
+CHR_11	string,
+IS_THIS_MONTH_DEV	string,
+IS_THIS_DEV	string,
+CH_C_01	string,
+NUM_25	double
+ACTIVITY_TYPE	string,
+CHR_15	string,
+EXP_DATE	string,
+PR_S_01	string,
+CHR_17	string,
+PR_R_02	string,
+PR_R_01	string,
+flux_d	double
+rome_flux_d	double
+local_flux_d	double
+)
+COMMENT '[]'
+PARTITIONED BY(MONTH_ID STRING COMMENT '月份分区',DAY_ID STRING COMMENT '日分区')
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\u0001'
+NULL DEFINED AS ''
+STORED AS RCFILE;"

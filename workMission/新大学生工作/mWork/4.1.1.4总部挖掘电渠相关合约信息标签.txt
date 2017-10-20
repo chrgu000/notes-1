@@ -1,0 +1,15 @@
+CREATE TABLE `open_076_ao.ods_m_zb_cus_mb_mining_all_user`(
+CYCLE_ID	VARCHAR2(6) NOT NULL comment '账期,格式：yyyymm',
+PARTITION_ID	VARCHAR2(20) NOT NULL comment '省份',
+SERIAL_NUMBER	VARCHAR2(20)  comment '电话号码',
+USER_ID	varchar2(50) comment  '用户ID',
+HV_INVALID_CONTRACT	varchar2(50)  comment '是否有未生效合约 （1有0没有）',
+INVALID_CONTRACT_CHNL_ID  varchar2(50) comment '未生效合约渠道id',
+INVALID_CONTRACT_ACCEPT_DATE  varchar2(50) comment '未生效合约受理时间'
+)  
+  
+COMMENT '[]'
+PARTITIONED BY(MONTH_ID STRING COMMENT '??ݷ??',DAY_ID STRING COMMENT '????')
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\u0001'
+NULL DEFINED AS ''
+STORED AS RCFILE;"
