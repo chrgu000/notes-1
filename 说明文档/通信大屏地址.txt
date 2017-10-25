@@ -1,0 +1,9 @@
+http://121.31.41.47:8090/breader/bigdata/gxiConnAsean.do
+
+http://121.31.41.47:8090/breader/bigdata/gxiConnA.do
+
+http://121.31.41.47:8090/breader/bigdata/gxiAnalysis.do
+
+http://121.31.41.47:8090/breader/bigdata/gxiInteract.do
+
+http://121.31.41.47:8090/breader/bigdata/gxiDataConn.do
