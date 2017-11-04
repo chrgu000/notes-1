@@ -1,0 +1,7 @@
+gradle build -x test
+gradle release
+gradle  apiJar  
+gradle publishToMavenLocal 
+gradle copyJars
+gradle copyProps
+gradle copyScripts
