@@ -1,0 +1,5 @@
+地市编码 + 户数长度 + 户数 + 总序号(order_num)
+如南宁13户订单为
+591 + 2 + 13 + (select max(order_num) from tb_baituan_log + 1)
+如序号为93，则为
+59121393

@@ -1,0 +1,8 @@
+order_id 订单号，生成规则见百团订单号生成规则
+order_num 累计订单数，全区累计
+datestamp 时间戳
+order_conten_num 订单用户量
+area_name 地市名称
+area_no 地市编码
+order_score 订单分数
+order_remain 订单算分后剩余户数

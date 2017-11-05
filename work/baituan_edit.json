@@ -1,0 +1,19 @@
+//添加页面
+request: {
+	"sessionkey": "",
+	"qry_type": "Baituan",
+	"action": "",	//0为查询，1为添加,2为删除
+	"area_no": "",	//添加需有这个
+	"order_t": "",	//添加需要有
+	"order_id": ""	//删除需要有
+}
+response:
+//查询，添加
+"body": {
+	"content": [{
+	"area_name": "",	//地市名称
+	"order_t": "",	//团单户数
+	"datestamp": "",	//操作时间
+	"order_id": ""	//单号，删除用
+}]
+}
