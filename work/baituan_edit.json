@@ -1,11 +1,11 @@
 //添加页面
 request: {
-	"sessionkey": "",
-	"qry_type": "Baituan",
-	"action": "",	//0为查询，1为添加,2为删除
-	"area_no": "",	//添加需有这个
-	"order_t": "",	//添加需要有
-	"order_id": ""	//删除需要有
+	"sessionkey": "3aa3ec58415443658a67ce50a52425bd",
+	"qry_type": "BaituanEdit",
+	"action": "1",	
+	"area_no": "593",	
+	"order_t": "62",	
+	"order_id": ""	
 }
 response:
 //查询，添加

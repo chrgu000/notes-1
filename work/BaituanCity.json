@@ -1,0 +1,76 @@
+2017 - 11 - 05 18: 35: 12.475 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.SysServImpl: updateMsg入参: {
+	"sessionkey": "fab4f11180ffce06da8bc2c44052fb0b"
+}
+2017 - 11 - 05 18: 35: 12.480 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.SysServImpl: 返回结果: {
+	"status": "0",
+	"description": "成功",
+	"title": "更新内容",
+	"content": "小CEO已恢复",
+	"msgid": "ver_1.2.3"
+}
+2017 - 11 - 05 18: 35: 15.999 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: qryNNList入参: {
+	"sessionkey": "fab4f11180ffce06da8bc2c44052fb0b",
+	"TOWN_NO": "LZLJ_XZ",
+	"AREA_TYPE": "03",
+	"BUSI_TYPE": "01"
+}
+2017 - 11 - 05 18: 35: 16.008 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 返回结果: 成功
+2017 - 11 - 05 18: 35: 16.022 INFO 8713-- - [askExecutor - 664] roducer$$EnhancerBySpringCGLIB$$e8dd5595: ** ** ** ** ** ceolog生产者： {
+	"msgtype": "CEO",
+	"openid": "od5z70PC6IBP9eYAkQWxfzccg4SM",
+	"actions": "59303",
+	"datestamp": "2017-11-05 18:35:16"
+}
+2017 - 11 - 05 18: 35: 16.038 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.UserServImpl: checkBinding入参: {
+	"sessionkey": "fab4f11180ffce06da8bc2c44052fb0b"
+}
+2017 - 11 - 05 18: 35: 16.041 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.UserServImpl: 返回结果: {
+	"status": "0",
+	"description": "成功",
+	"area_no": "593",
+	"user_area_no": "593",
+	"devicenumber": "18607727281"
+}
+2017 - 11 - 05 18: 35: 21.573 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: qryData入参: {
+	"sessionkey": "8b91268791a67c17ba5b4bebe4d12b69",
+	"qry_type": "BaituanEdit",
+	"action": "1",
+	"area_no": "591",
+	"order_t": "66"
+}
+2017 - 11 - 05 18: 35: 21.574 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 添加团单....................地市 591 66
+2017 - 11 - 05 18: 35: 21.577 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: error..............java.lang.NullPointerException
+2017 - 11 - 05 18: 35: 22.773 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: qryData入参: {
+	"sessionkey": "ad1b5a36f83c646a5c4578a0be670b64",
+	"qry_type": "BaituanView"
+}
+2017 - 11 - 05 18: 35: 22.775 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: menuid menuBaituanView
+2017 - 11 - 05 18: 35: 22.777 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 菜单原始参数: rpt_area_no = -1, menuauth = 1, city_no = 888, rpt_type = BaituanView
+2017 - 11 - 05 18: 35: 22.778 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 菜单匹配参数: rpt_area_no = -1, menuauth = 1, city_no = 888, rpt_type = BaituanView
+2017 - 11 - 05 18: 35: 22.778 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 获取数据BaituanView:
+	2017 - 11 - 05 18: 35: 22.782 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 返回结果: 成功
+2017 - 11 - 05 18: 35: 22.796 INFO 8713-- - [askExecutor - 665] roducer$$EnhancerBySpringCGLIB$$e8dd5595: ** ** ** ** ** ceolog生产者： {
+	"msgtype": "CEO",
+	"openid": "od5z70LeJAWSOk6w4xcB2OM5eDGM",
+	"actions": "BaituanView",
+	"datestamp": "2017-11-05 18:35:22"
+}
+2017 - 11 - 05 18: 35: 24.512 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: qryData入参: {
+	"sessionkey": "ad1b5a36f83c646a5c4578a0be670b64",
+	"qry_type": "BaituanEdit",
+	"action": "0"
+}
+2017 - 11 - 05 18: 35: 24.514 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: menuid menuBaituanEdit
+2017 - 11 - 05 18: 35: 24.516 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 菜单原始参数: rpt_area_no = -1, menuauth = 2, city_no = 888, rpt_type = BaituanEdit
+2017 - 11 - 05 18: 35: 24.516 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 菜单匹配参数: rpt_area_no = -1, menuauth = 2, city_no = 888, rpt_type = BaituanEdit
+2017 - 11 - 05 18: 35: 24.516 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 获取数据BaituanEdit:
+	2017 - 11 - 05 18: 35: 24.519 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: baituanedit........................... {
+		"content": []
+	}
+2017 - 11 - 05 18: 35: 24.519 INFO 8713-- - [6893 - thread - 199] cn.unicom.gx.export.impl.QryServImpl: 返回结果: 成功
+2017 - 11 - 05 18: 35: 24.535 INFO 8713-- - [askExecutor - 666] roducer$$EnhancerBySpringCGLIB$$e8dd5595: ** ** ** ** ** ceolog生产者： {
+	"msgtype": "CEO",
+	"openid": "od5z70LeJAWSOk6w4xcB2OM5eDGM",
+	"actions": "BaituanEdit",
+	"datestamp": "2017-11-05 18:35:24"
+}
