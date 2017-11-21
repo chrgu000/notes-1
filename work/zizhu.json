@@ -1,0 +1,13 @@
+"request": {
+	"sys_name": "CGZS",
+	"token": "dagegaewgewav",
+	"method": "zizhu"
+}
+
+"body":[{
+	"day_id" : "",
+	"login_user_cnt": "20",	//登录用户数
+	"outp_file_cnt": "20",	//导出文件数
+	"login_cnt": "20",	//登陆次数
+	"click_cnt": "40"	//模块访问次数
+}]
