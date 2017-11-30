@@ -1,0 +1,9 @@
+station_id varchar(20),		//基站ID
+net_info varchar(10),	//网络
+area_no int,
+area_name varchar(10),
+provider varchar(20),	//厂家
+model_name varchar(20),	//基站设备侧名称
+station_name varchar(20),	//基站名称
+longitude double,
+latitude double

@@ -1,0 +1,6 @@
+updatetime	datetime
+month_id	varchar(10)
+day_id	varchar(5)
+order_remain	int(11)	//今日剩余往日团单
+score_before	double	//昨日累计往日开户积分
+area_no	int(11)
