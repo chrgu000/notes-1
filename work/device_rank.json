@@ -1,0 +1,14 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "device_rank"
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"body": [{
+		"device_type": "",
+		"device_brand": "",
+		"rank": 1
+	}]
+}

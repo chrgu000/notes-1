@@ -1,0 +1,14 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "guishu_top5"
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"body": [{
+		"city_name": "",
+		"cnt": "",
+		"rank": 0
+	}]
+}

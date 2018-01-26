@@ -2,7 +2,7 @@ taptest	7!e8EA#IPYE
 montest	WmMR%FX43NH
 srvtest	$X10$LTK8oV
 redis	!&M1cNs$KuU
-zookeeper	FqD02OJ#vXM
+zookeeper FqD02OJ#vXM
 oracle	yk!io5OJ4az
 mysql	I1$^UbSgiRT
 dubbo1	rsEn&&nP9Eb

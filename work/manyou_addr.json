@@ -1,0 +1,14 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "manyou_top5"
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"body": [{
+		"start_time": "",
+		"end_time": "",
+		"cheat_cnt": 50
+	}]
+}
