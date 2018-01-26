@@ -1,0 +1,10 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "total_num"
+}
+
+response: {
+	"totalCnt": "2100",
+	"status": "0",
+	"description": "请求成功"
+}
