@@ -1,0 +1,14 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "active_time"
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"body": [{
+		"start_time": "",
+		"end_time": "",
+		"cheat_cnt": 50
+	}]
+}

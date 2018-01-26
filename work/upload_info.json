@@ -1,0 +1,14 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "upload_info",
+	"datas": "a|b|c..."
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"guishu_top5": "",
+	"manyou_top5": "",
+	"device_rank": "",
+	"active_time": ""
+}

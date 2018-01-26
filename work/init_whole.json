@@ -1,0 +1,14 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "init_whole"
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"city_data": "",
+	"guishu_top5": "",
+	"manyou_top5": "",
+	"device_rank": "",
+	"active_time": ""
+}

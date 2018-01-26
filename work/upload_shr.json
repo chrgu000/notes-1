@@ -1,0 +1,11 @@
+request: {
+	"sys_name": "mobile_cheat",
+	"method": "upload_shr",
+	"datas": "a|b|c|d"
+}
+
+response: {
+	"status": "",
+	"description": "",
+	"total_num": ""
+}
