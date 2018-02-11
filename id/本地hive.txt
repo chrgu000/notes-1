@@ -1,0 +1,40 @@
+主机：133.0.91.44 
+一、增加用户 
+hive新建用户给数据中心人员
+姓名   | 用户名
+------------------------
+黎振霖 | lt_lizhenlin
+蒙冠洲 | lt_mengguanzhou
+张日鑫 | lt_zhangrixin
+所有用户初始密码为: ltUN_#016 
+
+
+二、HIVE窗口 
+以用户lt_luhaiyu来举例：
+用户进入自己的hive环境，在自己环境下可以做select,drop,create操作， 
+例如用户 lt_luhaiyu ： 
+[lt_luhaiyu@had04 ~]$ hive 
+...... 
+hive> use lt_luhaiyu;
+OK
+Time taken: 0.245 seconds
+hive> create table mytesttb as select * from dim.dim_ref_pay_mode;
+hive> select * from lt_luhaiyu.dim_ref_pay_mode limit 2;
+OK
+01      后付费-信用额度非0      01      后付费  NULL
+02      后付费-信用额度为0      02      准预付费        NULL
+Time taken: 0.119 seconds, Fetched: 2 row(s)
+hive>
+hive>
+hive> show tables;
+OK
+mytesttb
+Time taken: 0.035 seconds, Fetched: 1 row(s)
+hive> 
+hive> 
+
+三、注意
+1、对于经分仓库，用户授权读取dwd、dwa、dm层表的数据
+2、读取经分仓库内表，每次不要超过一个月的数据量，多月的数据需逐月处理
+3、所有操作需要在UTF8字符环境下
+
