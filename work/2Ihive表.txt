@@ -1,0 +1,41 @@
+DWA_V_D_CUS_CB_TOI_USER_INFO
+
+电商2I用户清单(日)   select * from dwa.DWA_V_D_CUS_CB_TOI_USER_INFO
+电商2i总部正式订单MT美团卡数据	TO_INTER_MT_ORDER
+电商2i总部正式订单百度B卡数据	TO_INTER_B_ORDER
+电商2i总部正式订单小米卡数据	TO_INTER_XM_ORDER
+电商2i总部正式订单微博卡V卡数据	TO_INTER_V_ORDER
+电商2i现场受理	TO_INTER_XCSL
+电商2i营业厅自提订单明细(总部下发)	TO_INTER_YYTZT_NEW
+电商2i总部正式订单360神盾卡	TO_INTER_SD_ORDER
+电商2i总部正式订单网易白金卡	TO_INTER_WYF_ORDER
+电商2i总部正式订单阿里宝卡	TO_INTER_AL_ORDER
+电商2i总部正式订单帮帮卡	TO_INTER_HC_ORDER
+电商2i总部正式订单圆通卡	TO_INTER_YT_ORDER
+电商2i总部正式订单百度女神卡BB卡数据	TO_INTER_BB_ORDER
+电商2i总部正式订单工行e卡数据	TO_INTER_GE_ORDER
+电商2i总部正式订单喜马拉雅逸卡数据	TO_INTER_XMLY_ORDER
+电商2i总部正式订单SMA卡	TO_INTER_SMA_ORDER
+电商2i总部正式订单百度圣卡数据	TO_INTER_BDS_ORDER
+电商2i总部正式订单同花顺卡数据	TO_INTER_TH_ORDER
+电商2i总部正式订单EL饿了么饿卡,锋卡数据	TO_INTER_EL_ORDER
+电商2i总部正式订单ZN招牛联卡数据	TO_INTER_ZN_ORDER
+电商2i总部正式订单YM运满满卡数据	TO_INTER_YM_ORDER
+电商2i总部正式订单优酷卡数据	TO_INTER_KU_ORDER
+电商2i总部正式订单蚂蚁M卡数据	TO_INTER_M_ORDER
+电商2i总部正式订单滴滴D卡数据	TO_INTER_D_ORDER
+电商2i总部正式订单花椒卡数据	TO_INTER_HJ_ORDER
+电商2i总部正式订单招行Z卡数据	TO_INTER_Z_ORDER
+电商2i预约订单明细(总部下发)	TO_INTER_YUYUE_NEW
+电商2i总部正式订单浦发发卡数据	TO_INTER_PF_ORDER
+电商2i码上购激活订单明细(总部下发)	TO_INTER_MSG_NEW
+电商2i总部正式订单畅淘卡Q卡数据	TO_INTER_Q_ORDER
+电商2i总部正式订单AD钉钉卡数据	TO_INTER_AD_ORDER
+电商2i总部正式订单BL哔哩哔哩卡数据	TO_INTER_BL_ORDER
+电商2i总部正式订单JR今日头条卡数据	TO_INTER_JR_ORDER
+电商2i总部正式订单华夏卡数据	TO_INTER_HX_ORDER
+电商2i总部正式订单腾讯T卡数据	TO_INTER_T_ORDER
+电商2i上门激活订单明细新(总部下发)	TO_INTER_SMJH_NEW
+电商2i总部正式订单飞猪	TO_INTER_FZ_ORDER
+电商2i总部正式订单芒果卡数据	TO_INTER_MG_ORDER
+电商2i总部正式订单无限卡	TO_INTER_WX_ORDER
