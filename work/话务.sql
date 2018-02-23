@@ -18,7 +18,6 @@ GROUP BY
 MONTH_ID,DEVICE_NUMBER;
 
 
---中间表 语音MID_M_CB_VOICE_S
 INSERT INTO MID_M_CB_VOICE_S
 
 SELECT
@@ -34,6 +33,65 @@ WHERE
 MONTH_ID = '201801'
 GROUP BY
 MONTH_ID,DEVICE_NUMBER;
+
+
+--中间表 未产生话单天数
+INSERT INTO MID_M_MB_NO_VOICE
+
+select MONTH_ID,A.DEVICE_NUMBER,count(*) AS NO_VOICE_DAYS from (select day_id,MONTH_ID,DEVICE_NUMBER 
+from dwa.DWA_S_D_USE_MB_BS where month_id = '201801' GROUP BY MONTH_ID,DEVICE_NUMBER,DAY_ID) a 
+left outer join (select DEVICE_NUMBER,count(*) as call_cnt, day_id 
+from dwd.DWD_D_USE_MB_VOICE where month_id = '201801'
+group by day_id,DEVICE_NUMBER) b on a.day_id = b.day_id and A.DEVICE_NUMBER = B.DEVICE_NUMBER 
+where call_cnt is null
+GROUP BY MONTH_ID,A.DEVICE_NUMBER;
+
+
+INSERT INTO MID_M_CB_NO_VOICE
+
+select MONTH_ID,A.DEVICE_NUMBER,count(*) AS NO_VOICE_DAYS from (select day_id,MONTH_ID,DEVICE_NUMBER 
+from dwd.DWD_D_USE_CB_FLUX where month_id = '201801' GROUP BY MONTH_ID,DEVICE_NUMBER,DAY_ID) a 
+left outer join (select DEVICE_NUMBER,count(*) as call_cnt, day_id 
+from dwd.DWD_D_USE_CB_VOICE where month_id = '201801'
+group by day_id,DEVICE_NUMBER) b on a.day_id = b.day_id and A.DEVICE_NUMBER = B.DEVICE_NUMBER 
+where call_cnt is null
+GROUP BY MONTH_ID,A.DEVICE_NUMBER;
+
+
+--中间表 每月出现在机场天数
+INSERT INTO MID_M_MB_AIRPORT_DAYS
+
+select a.month_id,a.device_number,count(a.day_id) AS AIRPORT_DAYS from 
+(select month_id,device_number,day_id,cell_id,lac_id 
+from dwa.DWA_S_D_USE_MB_BS where month_id = '201802') a 
+join dwd.DWD_D_RES_AL_BS_INFO b 
+on a.cell_id = b.cell_id and a.lac_id = b.lac_id 
+where b.cell_name like '%机场%' and a.device_number = '15577111325'
+group by a.month_id,a.device_number,a.day_id;
+
+
+INSERT INTO MID_M_CB_AIRPORT_DAYS
+
+select a.month_id,a.device_number,count(a.day_id) from 
+(select month_id,device_number,day_id,cell_id,lac 
+from dwa.DWA_S_D_USE_CB_BS where month_id = '201802') a 
+join dwd.DWD_D_RES_AL_BS_INFO b 
+on a.cell_id = b.cell_id and a.lac = b.lac 
+where b.cell_name like '%机场%' and a.device_number = '15577111325'
+group by a.month_id,a.device_number,a.day_id;
+
+
+
+INSERT INTO MID_M_MB_DX_FLUX
+
+select month_id,device_number,SUM(free_limit_used) AS DX_FLUX_USED 
+from dwd.dwd_d_use_mb_pkg_gprs_used a
+right outer join
+(select month_id,max(day_id) as day_id from dwd.dwd_d_use_mb_pkg_gprs_used where month_id = '201801' group by month_id) b 
+on a.day_id = b.day_id
+and a.month_id = b.month_id
+where sub_flowtype like 'L06%'
+group by month_id,device_number;
 
 
 --BSS_M
@@ -53,11 +111,17 @@ B.SEND_SMS_NUM,	--发送短信数
 D.VOICE_OUT,	--使用套外语音分钟数
 D.CALL_TIMES,	--通话次数
 D.CALLING_TIMES,	--主叫通话时长
+E.CALL_10010,	--拨打客服次数
 F.SEND_MMS_NUM,	--发送彩信数
 G.lac_id,	--常住基站lac
 G.cell_id,	--常住基站cell_id
 H.roam_day,	--漫游天数
 I.ACTIVE_BS_NUM,	--使用活跃基站数
+J.jiaowang_nums,	--交往圈数
+K.NO_VOICE_DAYS,	--未产生话单天数
+L.AIRPORT_DAYS, 	--每月出现在机场天数
+M.DX_FLUX_USED,	--定向流量使用量
+N.xianshi_flux	--闲时流量使用量
 FROM
 DWA.DWA_V_M_CUS_MB_SING_FLUX A
 LEFT OUTER JOIN
@@ -106,6 +170,35 @@ group by MONTH_ID,DEVICE_NUMBER) I
 ON
 A.MONTH_ID = I.MONTH_ID
 AND A.DEVICE_NUMBER = I.DEVICE_NUMBER
+LEFT OUTER JOIN
+(select MONTH_ID,DEVICE_NUMBER,count(*) as jiaowang_nums from 
+(select MONTH_ID,DEVICE_NUMBER,OPPOSE_NUMBER,count(*) as oppo_call_cnt 
+from dwd.DWD_D_USE_MB_VOICE
+group by OPPOSE_NUMBER,MONTH_ID,DEVICE_NUMBER) T_C
+where oppo_call_cnt >= 3 GROUP BY MONTH_ID,DEVICE_NUMBER) J
+ON
+A.MONTH_ID = J.MONTH_ID
+AND A.DEVICE_NUMBER = J.DEVICE_NUMBER
+LEFT OUTER JOIN
+MID_M_MB_NO_VOICE K
+ON
+A.MONTH_ID = K.MONTH_ID
+AND A.DEVICE_NUMBER = K.DEVICE_NUMBER
+LEFT OUTER JOIN
+MID_M_MB_AIRPORT_DAYS L
+ON
+A.MONTH_ID = L.MONTH_ID
+AND A.DEVICE_NUMBER = L.DEVICE_NUMBER
+LEFT OUTER JOIN
+MID_M_MB_DX_FLUX M
+ON
+A.MONTH_ID = M.MONTH_ID
+AND A.DEVICE_NUMBER = M.DEVICE_NUMBER
+LEFT OUTER JOIN
+(SELECT sum(TOTAL_BYTES) as xianshi_flux FROM DWA_S_M_USE_MB_FLUX WHERE HOUR_SEG between '00' and '08') N
+ON
+A.MONTH_ID = N.MONTH_ID
+AND A.DEVICE_NUMBER = N.DEVICE_NUMBER
 WHERE
 A.MONTH_ID = '201801'
 AND A.DEVICE_NUMBER = '15577111325';
@@ -121,6 +214,7 @@ A.UP_ROAM_PROV_FLUX + A.DOWN_ROAM_PROV_FLUX as ROAM_PROV_FLUX, --省内漫游流
 A.FLUX_4G,	--4G基站流量
 A.DOWN_ROAM_INT_FLUX + A.UP_ROAM_INT_FLUX AS ROAM_INT_FLUX, --国际漫游流量
 A.UP_LOCAL_FLUX + A.DOWN_LOCAL_FLUX AS LOCAL_FLUX,	--本地使用流量
+A.DOWN_ROAM_CONT_FLUX + A.UP_ROAM_CONT_FLUX AS ROAM_COUNT_FLUX,	--国内漫游使用流量
 A.BILL_FLUX, --超出主套餐的流量
 B.SMS_OUT,	--套餐外短信
 B.SEND_SMS_NUM,	--发送短信数
@@ -129,6 +223,9 @@ D.VOICE_OUT,	--套外分钟数
 E.SEND_MMS_NUM,	--发送彩信数
 F.ROAM_BS_NUM,	--漫游基站数
 I.ACTIVE_BS_NUM,	--使用活跃基站数
+SUM(J.free_limit_used) AS DX_FLUX_USED,	--定向流量使用量
+K.xianshi_flux,	--闲时流量使用量
+L.FREE_LIMIT_REMAIN	--可用流量
 FROM
 DWA.DWA_V_D_CUS_MB_SING_FLUX A
 LEFT OUTER JOIN
@@ -172,6 +269,24 @@ ON
 A.MONTH_ID = I.MONTH_ID
 AND A.DAY_ID = I.DAY_ID
 AND A.DEVICE_NUMBER = I.DEVICE_NUMBER
+LEFT OUTER JOIN
+dwd.dwd_d_use_mb_pkg_gprs_used J
+ON
+A.MONTH_ID = J.MONTH_ID
+AND A.DAY_ID = J.DAY_ID
+AND A.DEVICE_NUMBER = J.DEVICE_NUMBER
+LEFT OUTER JOIN
+(SELECT sum(TOTAL_BYTES) as xianshi_flux FROM DWA_S_D_USE_MB_FLUX WHERE HOUR_SEG between '00' and '08') K
+ON
+A.MONTH_ID = K.MONTH_ID
+AND A.DAY_ID = K.DAY_ID
+AND A.DEVICE_NUMBER = K.DEVICE_NUMBER
+LEFT OUTER JOIN
+DWA.DWA_S_D_USE_MB_PKG_GPRS_USED L
+ON
+A.MONTH_ID = L.MONTH_ID
+AND A.DAY_ID = L.DAY_ID
+AND A.DEVICE_NUMBER = L.DEVICE_NUMBER
 WHERE
 A.MONTH_ID = '201802'
 AND A.DAY_ID = '06'
@@ -187,6 +302,7 @@ A.MONTH_ID,	--月份
 A.DEVICE_NUMBER,	--电话号码
 A.PROD_IN_LOCAL_FLUX + A.PROD_IN_ROAM_CONT_FLUX + A.PROD_IN_ROAM_GAT_FLUX + A.PROD_IN_ROAM_INT_FLUX AS FLUX_PRO_USED,	--套餐内使用流量
 A.FLUX_4G,	--4g基站流量
+A.DOWN_ROAM_CONT_FLUX + A.UP_ROAM_CONT_FLUX AS ROAM_COUNT_FLUX,	--国内漫游使用流量
 A.TOTAL_FEE, --超出套餐流量费用
 A.BILL_FLUX, --超出主套餐的流量
 B.SMS_OUT,	--套餐外短信数量
@@ -195,9 +311,14 @@ B.SEND_SMS_NUM,	--发送短信数
 D.VOICE_OUT,	--使用套外语音分钟数
 D.CALL_TIMES,	--通话次数
 D.CALLING_TIMES,	--主叫通话时长
+E.CALL_10010,	--拨打客服次数
 F.lac_id,	--常驻基站lac
 F.cell_id,	--常住基站cell_id
 G.roam_day,	--漫游天数
+H.ACTIVE_BS_NUM,	--使用活跃基站数
+I.jiaowang_nums,	--交往圈数
+J.NO_VOICE_DAYS,	--未产生话单天数
+K.xianshi_flux	--闲时流量使用量
 FROM
 DWA.DWA_V_M_CUS_CB_SING_FLUX A
 LEFT OUTER JOIN
@@ -237,6 +358,25 @@ LEFT OUTER JOIN
 ON
 A.MONTH_ID = H.MONTH_ID
 AND A.DEVICE_NUMBER = H.DEVICE_NUMBER
+LEFT OUTER JOIN
+(select MONTH_ID,DEVICE_NUMBER,count(*) as jiaowang_nums from 
+(select MONTH_ID,DEVICE_NUMBER,OPPOSE_NUMBER,count(*) as oppo_call_cnt 
+from dwd.DWD_D_USE_MB_VOICE
+group by OPPOSE_NUMBER,MONTH_ID,DEVICE_NUMBER) T_C
+where oppo_call_cnt >= 3 GROUP BY MONTH_ID,DEVICE_NUMBER) I
+ON
+A.MONTH_ID = I.MONTH_ID
+AND A.DEVICE_NUMBER = I.DEVICE_NUMBER
+LEFT OUTER JOIN
+MID_M_CB_NO_VOICE J
+ON
+A.MONTH_ID = J.MONTH_ID
+AND A.DEVICE_NUMBER = J.DEVICE_NUMBER
+LEFT OUTER JOIN
+(select sum(TOTAL_BYTES) as xianshi_flux from dwa.DWA_S_M_USE_CB_FLUX 
+where (HOUR_SEG between '23' and '24') or (HOUR_SEG between '00' and '07')) K
+A.MONTH_ID = K.MONTH_ID
+AND A.DEVICE_NUMBER = K.DEVICE_NUMBER
 WHERE
 A.MONTH_ID = '201801'
 AND A.DEVICE_NUMBER = '15577111325';
@@ -258,6 +398,7 @@ B.SEND_SMS_NUM,	--发送短信数
 D.VOICE_OUT,	--使用套外语音分钟数
 E.roam_bs_num,	--漫游基站数
 F.ACTIVE_BS_NUM,	--活跃基站数
+G.xianshi_flux	--闲时流量使用量
 FROM
 DWA.DWA_V_D_CUS_CB_SING_FLUX A
 LEFT OUTER JOIN
@@ -291,6 +432,9 @@ ON
 A.MONTH_ID = F.MONTH_ID
 AND A.DAY_ID = F.DAY_ID
 AND A.DEVICE_NUMBER = F.DEVICE_NUMBER
+LEFT OUTER JOIN
+(select sum(TOTAL_BYTES) as xianshi_flux from dwa.DWA_S_D_USE_CB_FLUX 
+where (HOUR_SEG between '23' and '24') or (HOUR_SEG between '00' and '07')) G
 WHERE
 A.MONTH_ID = '201802'
 AND A.DAY_ID = '06'
