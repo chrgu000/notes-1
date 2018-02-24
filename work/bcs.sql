@@ -1,0 +1,5 @@
+SELECT T4.ORG_MANAGER_TYPE_DESC , t1.*
+     FROM bcsecnew.BCC_EC_PREPARE_CALC_OBJ T1, 
+          bcsecnew.BCC_EC_CODE_OBJ_TYPE T4 
+    WHERE T1.OBJ_TYPE = T4.ORG_MANAGER_TYPE
+      and t1.obj_state=5;
