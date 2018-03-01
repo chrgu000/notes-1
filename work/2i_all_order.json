@@ -1,0 +1,37 @@
+request: {
+	"area_no": "",	//地市或基层单元编码，全区为-1
+	"month": ""	//0本月,1上月
+}
+
+response: {
+	"detail": [{
+		"area_no": "",
+		"area_name": "",
+		"order_num": "",	//订单量
+		"innet_num": "",	//开户量，新入网量
+		"innet_rate": "",	//开户率
+		"activate_num": "",	//激活量
+		"activate_rate": "",	//激活率
+		"charge_num": "",	//充值量
+		"change_rate": "",	//转化率
+		"band_num": "",	//王卡助手绑定量
+		"band_rate": "",	//王卡助手绑定率
+		"diffnet_num": "",	//异网量
+		"diffnet_rate": ""	//异网率
+	}],
+	"total": {
+		"area_no": "",
+		"area_name": "",
+		"order_num": "",	//订单量
+		"innet_num": "",	//开户量，新入网量
+		"innet_rate": "",	//开户率
+		"activate_num": "",	//激活量
+		"activate_rate": "",	//激活率
+		"charge_num": "",	//充值量
+		"change_rate": "",	//转化率
+		"band_num": "",	//王卡助手绑定量
+		"band_rate": "",	//王卡助手绑定率
+		"diffnet_num": "",	//异网量
+		"diffnet_rate": ""	//异网率
+	}
+}

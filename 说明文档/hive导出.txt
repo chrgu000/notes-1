@@ -1,1 +1,0 @@
-hive -e "select * from table_name;" > file.txt

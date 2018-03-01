@@ -1,0 +1,2 @@
+select * from UCR_CRM3.TF_F_USER@JF_TO_KFKDB
+select * from UCR_ACT3.TF_B_PAYLOG@JF_TO_KFKDB  
