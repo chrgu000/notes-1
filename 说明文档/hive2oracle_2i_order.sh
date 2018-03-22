@@ -16,7 +16,7 @@ v_passwd=qzhu_wx_2017
 source /usr/local/oracle/xe/oracle_env
 
 hive -e "
-select * from DWD.DWD_D_EVT_MB_TO_INTER_ORDER where month_Id = '$v_month_id' and day_id='$v_last_day';
+select * from lt_mengguanzhou.unbind_user;
 " > 2i_order_data.txt
 
 echo "
@@ -24,57 +24,22 @@ load data
 characterset utf8
 infile '2i_order_data.txt'
 append
-into table DWD_D_EVT_MB_TO_INTER_ORDER
+into table unbind_user
 fields terminated by X'09'
 TRAILING NULLCOLS
 (
-product_type,
-order_id,
-order_date,
-prov_id,
-area_id,
-pay_charge,
-charge,
-order_status,
-cust_name,
-card_id,
-order_device_number,
-sex,
-age,
-product_name,
-goods_name,
-device_number,
-delivery_addr,
-delivery_city_no,
-logistics_supplier,
-logistics_id,
-send_date,
-logistics_status,
-sign_date,
-activate_status,
-audit_status,
-activate_date,
-cust_ip,
-audit_remarks CHAR(4000),
-order_back_reason,
-charge_back_reason,
-sms_detail CHAR(4000),
-is_send,
-is_acti_to_oper_audit,
-is_acti_to_oper,
-is_valid_order,
-is_back_order,
-call_dur,
-sms_num,
-tencent_score,
-activate_openid,
-activate_channel_no,
-dev_no,
-order_openid,
-order_channel_no,
-product_id,
-month_id,
-day_id
+ day_id,
+ user_id,
+ device_number,
+ in_date,
+ prov_code,
+ prov_name,
+ city_code,
+ city_name,
+ contact_phone,
+ unbind_type,
+ unbind_state,
+ chnl_type
 )
 " > 2i_order_data.ctl
 

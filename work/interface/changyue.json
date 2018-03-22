@@ -1,0 +1,31 @@
+/rest/SSBMaintain
+request: {
+	"sessionkey": "",
+	"qry_type": "changyue",
+	"product_id": ""
+}
+
+response: {
+	"detail": [{
+		"area_no": "", 
+		"area_name": "",
+		"offline_num": "",
+		"out_call_num": "",
+		"sms_chnl_num": "",
+		"kefu_num": "",
+		"ting_num": "",
+		"total_num_m": "",
+		"total_num_y": ""
+	}],
+	"total": {
+		"area_no": "", 
+		"area_name": "",
+		"offline_num": "",
+		"out_call_num": "",
+		"sms_chnl_num": "",
+		"kefu_num": "",
+		"ting_num": "",
+		"total_num_m": "",
+		"total_num_y": ""
+	}
+}

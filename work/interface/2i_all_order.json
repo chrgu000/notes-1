@@ -1,9 +1,12 @@
 request: {
 	"area_no": "",	//地市或基层单元编码，全区为-1
-	"month": ""	//0本月,1上月
-}
+	"month": "",	//0本月,1上月
+	"sessionkey": "",
+	"qry_type": "ToIAllOrder"
+}ToIAllOrderWZTX_ZQ_DSWG_XNQD
 
 response: {
+	"month": "",
 	"detail": [{
 		"area_no": "",
 		"area_name": "",
@@ -33,5 +36,6 @@ response: {
 		"band_rate": "",	//王卡助手绑定率
 		"diffnet_num": "",	//异网量
 		"diffnet_rate": ""	//异网率
-	}
+	},
+	"datestamp": ""
 }

@@ -1,0 +1,32 @@
+/rest/SSBMaintain
+request: {
+	"sessionkey": "",
+	"qry_type": "llb"
+}
+
+response: {
+	"detail": [{
+		"area_no": "", 
+		"area_name": "",
+		"dev_num_d": "",
+		"online_num_d": "",
+		"offline_num_d": "",
+		"link_relat_d": "",
+		"dev_num_m": "",
+		"online_num_m": "",
+		"offline_num_m": "",
+		"link_relat_m": ""
+	}],
+	"total": {
+		"area_no": "", 
+		"area_name": "",
+		"dev_num_d": "",
+		"online_num_d": "",
+		"offline_num_d": "",
+		"link_relat_d": "",
+		"dev_num_m": "",
+		"online_num_m": "",
+		"offline_num_m": "",
+		"link_relat_m": ""
+	}
+}

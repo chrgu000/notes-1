@@ -1,0 +1,82 @@
+{
+	"sessionkey":"",
+	"month": "",	//0为本月,1为上月
+	"qry_type": "",	//0为分业务类型统计,返回表5：分业务类型（本地市合计）,1为查询地区业务类型详情,返回表3：分地市分渠道
+	"ord_type": "",	//若上面为1,,需填写业务类型,1为现场受理,2为闪电购,3为上门激活,4为自提,5为集中配送,6为转物流
+	"area_no": ""
+}
+
+response:body: {		//1.qry_type == 0情况
+	"month": "",
+	"qry_type": "",
+	"area_no": "",
+	"area_name": "",
+	"detail": [{
+		"ord_type": "",	//同上
+		"type_name": "",	//业务类型名称
+		"order_num": "",	//订单量
+		"innet_num": "",	//开户量，新入网量
+		"innet_rate": "",	//开户率
+		"activate_num": "",	//激活量
+		"activate_rate": "",	//激活率
+		"charge_num": "",	//充值量
+		"change_rate": "",	//转化率
+		"band_num": "",	//王卡助手绑定量
+		"band_rate": "",	//王卡助手绑定率
+		"diffnet_num": "",	//异网量
+		"diffnet_rate": ""	//异网率
+	}],
+	"total": {
+		"order_num": "",	//订单量
+		"innet_num": "",	//开户量，新入网量
+		"innet_rate": "",	//开户率
+		"activate_num": "",	//激活量
+		"activate_rate": "",	//激活率
+		"charge_num": "",	//充值量
+		"change_rate": "",	//转化率
+		"band_num": "",	//王卡助手绑定量
+		"band_rate": "",	//王卡助手绑定率
+		"diffnet_num": "",	//异网量
+		"diffnet_rate": ""	//异网率
+	},
+	"datestamp": ""
+}
+
+
+body: {		//qry_type == 1情况
+	"month": "",
+	"qry_type": "",
+	"ord_type": "",
+	"type_name": "",	//业务类型名称
+	"detail": [{
+		"area_no": "",
+		"area_name": "",
+		"order_num": "",	//订单量
+		"innet_num": "",	//开户量，新入网量
+		"innet_rate": "",	//开户率
+		"activate_num": "",	//激活量
+		"activate_rate": "",	//激活率
+		"charge_num": "",	//充值量
+		"change_rate": "",	//转化率
+		"band_num": "",	//王卡助手绑定量
+		"band_rate": "",	//王卡助手绑定率
+		"diffnet_num": "",	//异网量
+		"diffnet_rate": ""	//异网率
+	}],
+	"total": {
+		"area_no": "",
+		"area_name": "",
+		"order_num": "",	//订单量
+		"innet_num": "",	//开户量，新入网量
+		"innet_rate": "",	//开户率
+		"activate_num": "",	//激活量
+		"activate_rate": "",	//激活率
+		"charge_num": "",	//充值量
+		"change_rate": "",	//转化率
+		"band_num": "",	//王卡助手绑定量
+		"band_rate": "",	//王卡助手绑定率
+		"diffnet_num": "",	//异网量
+		"diffnet_rate": ""	//异网率
+	},
+	"datestamp": ""
+}

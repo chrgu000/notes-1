@@ -6,7 +6,7 @@ hive新建用户给数据中心人员
 黎振霖 | lt_lizhenlin
 蒙冠洲 | lt_mengguanzhou
 张日鑫 | lt_zhangrixin
-所有用户初始密码为: ltUN_#016 
+所有用户初始密码为: ltUN_#016
 
 
 二、HIVE窗口 

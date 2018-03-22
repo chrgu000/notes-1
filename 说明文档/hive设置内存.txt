@@ -1,0 +1,4 @@
+set mapreduce.map.memory.mb=4096;
+set mapreduce.reduce.memory.mb=4096;
+
+set mapred.max.split.size=512000000;

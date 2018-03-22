@@ -61,13 +61,15 @@ GROUP BY MONTH_ID,A.DEVICE_NUMBER;
 --中间表 每月出现在机场天数
 INSERT INTO MID_M_MB_AIRPORT_DAYS
 
-select a.month_id,a.device_number,count(a.day_id) AS AIRPORT_DAYS from 
+select a.month_id,a.device_number,count(distinct a.day_id) AS AIRPORT_DAYS from 
 (select month_id,device_number,day_id,cell_id,lac_id 
-from dwa.DWA_S_D_USE_MB_BS where month_id = '201802') a 
+from dwa.DWA_S_D_USE_MB_BS where month_id = '201802'
+and day_id >= '06' and day_id <= '09'
+and device_number = '15577111325') a 
 join dwd.DWD_D_RES_AL_BS_INFO b 
 on a.cell_id = b.cell_id and a.lac_id = b.lac_id 
-where b.cell_name like '%机场%' and a.device_number = '15577111325'
-group by a.month_id,a.device_number,a.day_id;
+where b.cell_name like '%机场%'
+group by a.month_id,a.device_number;
 
 
 INSERT INTO MID_M_CB_AIRPORT_DAYS

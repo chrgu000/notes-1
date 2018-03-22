@@ -1,12 +1,17 @@
 人员基层单元对应关系:ALLDMCODE.CODE_TWO_I_FRONT_LINE
-
 电商2I用户清单(日)   select * from dwa.DWA_V_D_CUS_CB_TOI_USER_INFO
-全量表 dwd.DWD_D_EVT_MB_TO_INTER_ORDER 
+
+
+
+全量表 dwd.DWD_D_EVT_MB_TO_INTER_ORDER    lt_huangjunxin.t_2i_order_all
 电商2i预约订单明细(总部下发)	TO_INTER_YUYUE_NEW
 电商2i现场受理	TO_INTER_XCSL
 电商2i营业厅自提订单明细(总部下发)	TO_INTER_YYTZT_NEW
 电商2i上门激活订单明细新(总部下发)	TO_INTER_SMJH_NEW
 电商2i码上购激活订单明细(总部下发)	TO_INTER_MSG_NEW
+电商2i闪电购激活订单明细	NEW_STG.TO_INTER_SDG
+电商2i线上购激活订单明细	NEW_STG.TO_INTER_XSG
+王卡绑定表	NEW_STG.UNBIND_USER
 电商2i总部正式订单MT美团卡数据	TO_INTER_MT_ORDER
 电商2i总部正式订单百度B卡数据	TO_INTER_B_ORDER
 电商2i总部正式订单小米卡数据	TO_INTER_XM_ORDER
