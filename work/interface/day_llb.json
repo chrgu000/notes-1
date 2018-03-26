@@ -1,0 +1,9 @@
+request: {
+	"qry_type": "day_llb"	//or  day_changyue
+}
+
+response: {
+	"days": [{
+		"day": 0
+	}]
+}

@@ -1,7 +1,8 @@
 /rest/SSBMaintain
 request: {
 	"sessionkey": "",
-	"qry_type": "llb"
+	"qry_type": "llb",
+	"day_id": ""
 }
 
 response: {

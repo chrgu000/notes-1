@@ -9,22 +9,32 @@ response: {
 	"detail": [{
 		"area_no": "", 
 		"area_name": "",
-		"offline_num": "",
-		"out_call_num": "",
-		"sms_chnl_num": "",
-		"kefu_num": "",
-		"ting_num": "",
+		"offline_num_d": "",	//线下
+		"out_call_num_d": "",	//外呼
+		"sms_chnl_num_d": "",	//短信
+		"kefu_num_d": "",	//客服
+		"ting_num_d": "",	//手网厅
+		"out_call_num_m": "",
+		"sms_chnl_num_m": "",
+		"kefu_num_m": "",
+		"ting_num_m": "",
+		"total_num_d": "",
 		"total_num_m": "",
 		"total_num_y": ""
 	}],
 	"total": {
 		"area_no": "", 
 		"area_name": "",
-		"offline_num": "",
-		"out_call_num": "",
-		"sms_chnl_num": "",
-		"kefu_num": "",
-		"ting_num": "",
+		"offline_num_d": "",	//线下
+		"out_call_num_d": "",	//外呼
+		"sms_chnl_num_d": "",	//短信
+		"kefu_num_d": "",	//客服
+		"ting_num_d": "",	//手网厅
+		"out_call_num_m": "",
+		"sms_chnl_num_m": "",
+		"kefu_num_m": "",
+		"ting_num_m": "",
+		"total_num_d": "",
 		"total_num_m": "",
 		"total_num_y": ""
 	}
