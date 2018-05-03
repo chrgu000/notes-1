@@ -1,0 +1,10 @@
+测试环境地址：http://www.woappstore.com
+
+
+
+管理平台地址：http://www.woappstore.com/manage
+
+
+账号：GXTest1
+
+密码：GXTest1

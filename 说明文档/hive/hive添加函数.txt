@@ -1,0 +1,9 @@
+
+:
+添加函数：
+add jar /路径/WORDCHK.jar;
+create temporary function getdistance as 'com.bonc.GETDISTANCE';
+
+:
+使用函数：
+select GetDistance(坐标1-经度,坐标1-纬度,坐标2-经度,坐标2-纬度) as dist from xxxx...

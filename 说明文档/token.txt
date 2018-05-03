@@ -1,0 +1,14 @@
+http://www.woappstore.com/bomp/sync/execute?{
+  "app_id": "B39900015",
+  "secret_key": "55b3a9bc2d0a4c21a7beda677e898eb6",
+  "account_list": [
+    {
+      "account": "wangzy",
+      "eip_account": "wangzy",
+      "name": "Õı’Ò”Ó",
+      "phone": "13153107501",
+      "password":"123456",
+      "status":1,"roles":[1,6]
+    }
+  ]
+}

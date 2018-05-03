@@ -1,0 +1,17 @@
+http://unijzyx.cop.local:8081/portal/menuinfo.action
+
+—4号标签配置用户
+
+label_059/gx_label
+
+
+
+行云4号
+主机地址：10.162.156.76
+
+端口：1803
+
+数据库名/用户名：clyx_gx_059
+
+密码:G8t_eF0_#zy
+连接模式：JDBC类载均衡

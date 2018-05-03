@@ -1,0 +1,34 @@
+	String url = "http://127.0.0.1:61200/sync/execute";
+
+	@Test
+	public void demo() {
+		JSONObject json = new JSONObject();
+
+		json.put("app_id", "B39900129");
+		json.put("secret_key", "e93cb2b6e87148efaee9e13e23ebc4cd");
+		
+		List<Account> list=new ArrayList<>();
+		Account a=new Account();
+		a.setAccount("liujc");
+		a.setName("¡ıø°≥€");
+		a.setPhone("13045169702");
+		a.setStatus(1);
+		list.add(a);
+		  
+		json.put("account_list", list);
+
+		RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+        headers.setContentType(type);
+        headers.add("Accept", MediaType.APPLICATION_JSON.toString());
+        
+        JSONObject jsonObj = json;
+        
+        HttpEntity<String> formEntity = new HttpEntity<String>(jsonObj.toString(), headers);
+
+        String result = restTemplate.postForObject(this.url, formEntity, String.class);
+	
+	System.out.println("∑µªÿ÷µ"+result);
+	}
+	

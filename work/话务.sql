@@ -96,6 +96,7 @@ where sub_flowtype like 'L06%'
 group by month_id,device_number;
 
 
+
 --BSS_M
 INSERT INTO
 DWA_A_M_PRO_MB_USER
@@ -166,6 +167,7 @@ AND A.DEVICE_NUMBER = H.DEVICE_NUMBER
 LEFT OUTER JOIN
 (select MONTH_ID,DEVICE_NUMBER,count(*) as ACTIVE_BS_NUM from 
 (select MONTH_ID,DEVICE_NUMBER,lac_id,cell_id,sum(FLUX_UP + FLUX_DOWN) AS FLUX,sum(call_times) AS CALL_TIMES from dwa.DWA_S_D_USE_MB_BS 
+where month_id = '201801'
 group by MONTH_ID,DEVICE_NUMBER,lac_id,cell_id) T_B
 where FLUX >= 1024 AND CALL_TIMES > 0
 group by MONTH_ID,DEVICE_NUMBER) I
@@ -356,7 +358,8 @@ ON
 A.MONTH_ID = G.MONTH_ID
 AND A.DEVICE_NUMBER = G.DEVICE_NUMBER
 LEFT OUTER JOIN
-(select MONTH_ID,DEVICE_NUMBER,count(*) as ACTIVE_BS_NUM from (select MONTH_ID,DEVICE_NUMBER,lac,cell_id,sum(FLUX_UP + FLUX_DOWN) AS FLUX,sum(case when CALL_DURATION > 0 then 1 else 0 end) > 0 AS CALL_TIMES from dwd.DWD_D_USE_CB_FLUX  group by MONTH_ID,DEVICE_NUMBER,lac,cell_id) a where A.FLUX >= 1024 OR A.CALL_TIMES > 0 GROUP BY MONTH_ID,DEVICE_NUMBER) H
+(select MONTH_ID,DEVICE_NUMBER,count(*) as ACTIVE_BS_NUM from (select MONTH_ID,DEVICE_NUMBER,lac,cell_id,sum(FLUX_UP + FLUX_DOWN) AS FLUX,sum(case when CALL_DURATION > 0 then 1 else 0 end) > 0 AS CALL_TIMES from dwd.DWD_D_USE_CB_FLUX
+where month_id = '201801'  group by MONTH_ID,DEVICE_NUMBER,lac,cell_id) a where A.FLUX >= 1024 OR A.CALL_TIMES > 0 GROUP BY MONTH_ID,DEVICE_NUMBER) H
 ON
 A.MONTH_ID = H.MONTH_ID
 AND A.DEVICE_NUMBER = H.DEVICE_NUMBER

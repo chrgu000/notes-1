@@ -1,0 +1,22 @@
+iconv -f GBK -t UTF-8 unbind_user_20180301.csv > unbind_user_20180301.csv_new
+
+日期,USER_ID,号码,入网时间,省份代码,省份名称,地区代码,地区名称,联系电话,未绑定类别,未绑定状态,渠道类型
+
+ create table unbind_user(
+ day_id string,
+ user_id string,
+ device_number string,
+ in_date string,
+ prov_code string,
+ prov_name string,
+ city_code string,
+ city_name string,
+ contact_phone string,
+ unbind_type string,
+ unbind_state string,
+ chnl_type string)
+  ROW FORMAT DELIMITED
+ FIELDS TERMINATED BY '\t'
+ COLLECTION ITEMS TERMINATED BY '\t';
+ 
+LOAD DATA LOCAL INPATH '/home/lt_mengguanzhou/unbind_user_20180301.csv_new' OVERWRITE INTO TABLE unbind_user;

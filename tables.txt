@@ -1,0 +1,15 @@
+newjfdb:
+
+
+
+
+
+
+
+
+
+
+hive:
+表名:ODS_D_RES_AL_BASE_STATION 解释:2/3/4基站信息
+  备注: 2/3/4基站信息
+表名:of_dwa.dwa_v_m_bs_place  解释:用户常驻基站表

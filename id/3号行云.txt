@@ -1,0 +1,11 @@
+http://clyxys.cop.local:8081/cportal/menuinfo.action
+
+sys_operation_admin/bonc
+
+
+
+          IP：10.162.156.87~89
+         port:30059
+         库名：cunliang
+        用户1：clyx_gx3_app/WHU_62f_82#
+        用户2：clyx_gx3_059/DMN_97e_36$
