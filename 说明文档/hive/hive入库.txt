@@ -16,7 +16,7 @@ iconv -f GBK -t UTF-8 unbind_user_20180301.csv > unbind_user_20180301.csv_new
  unbind_state string,
  chnl_type string)
   ROW FORMAT DELIMITED
- FIELDS TERMINATED BY '\t'
- COLLECTION ITEMS TERMINATED BY '\t';
+ FIELDS TERMINATED BY '\n'
+ COLLECTION ITEMS TERMINATED BY '\n';
  
 LOAD DATA LOCAL INPATH '/home/lt_mengguanzhou/unbind_user_20180301.csv_new' OVERWRITE INTO TABLE unbind_user;
