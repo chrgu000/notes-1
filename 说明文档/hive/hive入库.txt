@@ -20,3 +20,4 @@ iconv -f GBK -t UTF-8 unbind_user_20180301.csv > unbind_user_20180301.csv_new
  COLLECTION ITEMS TERMINATED BY '\n';
  
 LOAD DATA LOCAL INPATH '/home/lt_mengguanzhou/unbind_user_20180301.csv_new' OVERWRITE INTO TABLE unbind_user;
+LOAD DATA LOCAL INPATH '/home/lt_mengguanzhou/temp_phone.csv' OVERWRITE INTO TABLE temp_phone;
